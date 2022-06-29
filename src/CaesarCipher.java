@@ -11,11 +11,13 @@ public class CaesarCipher {
             int indexPosition = ALPHABET.indexOf(aChar);
             int newIndexPosition;
             char newCharAt = 0;
+
             if (indexPosition > 0) {
                 if (key > 0) {
-                    newIndexPosition = (indexPosition + key) % ALPHABET.length() / 2;
+                    newIndexPosition = (indexPosition + key) % (ALPHABET.length() / 2);
                 } else {
-                    newIndexPosition = (indexPosition + ALPHABET.length() / 2 + (key % ALPHABET.length() / 2)) % ALPHABET.length();
+                    key = key % (ALPHABET.length() / 2);
+                    newIndexPosition = (indexPosition + (ALPHABET.length() / 2) + key) % ALPHABET.length();
                 }
                 newCharAt = ALPHABET.charAt(newIndexPosition);
             }
