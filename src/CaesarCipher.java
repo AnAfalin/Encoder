@@ -6,7 +6,7 @@ public class CaesarCipher {
     private static final String ALPHABET = ALPHABET_PART_ONE + ALPHABET_PART_TWO;
 
     public String encrypt(String message, int key) {
-        System.out.println(ALPHABET.length());
+
         StringBuilder result = new StringBuilder();
         for (char aChar : message.toCharArray()) {
             int indexPosition = ALPHABET.indexOf(aChar);
@@ -30,5 +30,11 @@ public class CaesarCipher {
     public String deEncrypt(String message, int key) {
         return encrypt(message, -1 * key);
     }
+
+    public int alphabetLength(){
+        return ALPHABET.length() / 2;
+    }
+
+
 
 }
