@@ -1,4 +1,3 @@
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Menu {
@@ -8,7 +7,7 @@ public class Menu {
         while (true) {
             System.out.println("Здравствуйте! " +
                     "Выберите:\n" +
-                    "1. Зашифровть файл\n" +
+                    "1. Зашифровать файл\n" +
                     "2. Расшифровать файл\n" +
                     "3. Перебор\n" +
                     "4. Синтаксический анализ\n" +
@@ -18,7 +17,7 @@ public class Menu {
                 case ("1") -> new Coder().coder();
                 case ("2") -> new Decoder().decoder();
                 case ("3") -> new Bruteforce().bruteforce();
-                case ("4") -> System.out.println();
+                case ("4") -> new SyntaxAnalysis().analysisStatistic();
             }
 
             if(answer.equals("5")){
