@@ -3,6 +3,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,21 +19,27 @@ public class Bruteforce {
 
         CaesarCipher caesarCipher = new CaesarCipher();
 
-
-
         try (BufferedReader bufferedReader = Files.newBufferedReader(encryptedFile);
              BufferedWriter bufferedWriter = Files.newBufferedWriter(notEncryptedFile)) {
 
             StringBuilder text = new StringBuilder();
+            List<String> list = new ArrayList<>();
             while (bufferedReader.ready()){
-                text.append(bufferedReader.readLine());
+                String string = bufferedReader.readLine();
+                text.append(string);
+                list.add(string);
+
             }
 
             for (int i = 0; i < caesarCipher.alphabetLength(); i++) {
                 String encryptedString = caesarCipher.deEncrypt(text.toString(), i);
                 if(isValidateText(encryptedString)){
-                    bufferedWriter.write(encryptedString);
-                    System.out.println("Текст рашифрован и записан. Ключ расшифровки - " + i);
+                    for (String string : list) {
+                        String deEncrypt = caesarCipher.deEncrypt(string, i);
+                        bufferedWriter.write(deEncrypt + System.lineSeparator());
+                        System.out.println("Текст расшифрован и записан. Ключ расшифровки - " + i);
+                        break;
+                    }
                 }
             }
 
@@ -79,3 +87,7 @@ public class Bruteforce {
 
 
 }
+
+
+//найти ошибку через дебаг. получить ключ. проверить правильность записи.
+//предложить варианты исправить ошибку
