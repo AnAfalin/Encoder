@@ -29,7 +29,7 @@ public class Coder {
             }
 
         } catch (IOException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
 
         System.out.println("Файл зашифрован!");
