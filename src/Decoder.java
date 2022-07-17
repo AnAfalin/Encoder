@@ -10,7 +10,6 @@ public class Decoder {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите путь к файлу, который необходимо расшифровать");
         Path encryptedFile = Path.of(scanner.nextLine());
-        //String notEncryptedFile = scanner.nextLine();
 
         System.out.println("Введите ключ шифрования");
         int key = Integer.parseInt(scanner.nextLine());
